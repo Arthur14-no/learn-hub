@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $titre ?? APP_NAME; ?> - <?php echo APP_NAME; ?></title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="<?php echo BASE_URL; ?>css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/bootstrap-icons.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/style.css">
 </head>
 <body>
@@ -60,12 +59,9 @@ if (isset($_SESSION['role'])) {
                         </a>
                     </li>
                     <li class="nav-item me-2">
-                        <span class="nav-link d-flex align-items-center">
-                            <span class="avatar-circle me-2">
-                                <?php echo strtoupper(substr($_SESSION['prenom'], 0, 1) . substr($_SESSION['nom'], 0, 1)); ?>
-                            </span>
-                            <?php echo htmlspecialchars($_SESSION['prenom'] . ' ' . $_SESSION['nom']); ?>
-                            <span class="badge bg-light text-primary ms-2"><?php echo $_SESSION['role']; ?></span>
+                        <span class="nav-link">
+                            👤 <?php echo htmlspecialchars($_SESSION['prenom'] . ' ' . $_SESSION['nom']); ?>
+                            <span class="badge bg-light text-primary"><?php echo $_SESSION['role']; ?></span>
                         </span>
                     </li>
                     <li class="nav-item">
